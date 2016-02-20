@@ -1,7 +1,7 @@
 #!/usr/bin/python
 #encoding=utf-8
 import sys
-import  MySQLdb
+import MySQLdb
 import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
