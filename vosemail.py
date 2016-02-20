@@ -15,7 +15,7 @@ MYSQL_SERVER="xxxxxx"
 MYSQL_USER="xxxx"
 MYSQL_PASS="xxxxx"
 DATABASE="xxxxxx"
-TITLE="你今天的VOS相关内容"
+TITLE="你今天的话费消费记录"
 def send_mail(to_list,sub,content):  #to_list：收件人；sub：主题；content：邮件内容
     me="Email_VOS"+"<"+mail_user+"@"+mail_postfix+">"   #这里的hello可以任意设置，收到信后，将按照设置显示
     msg = MIMEText(content,_subtype='html',_charset='utf-8')    #创建一个实例，这里设置为html格式邮件
@@ -43,11 +43,11 @@ try:
                 MONEY = data["money"]
                 LIMITMONEY = data["limitmoney"]
                 TODAYCONSUMPTION = data["todayconsumption"]
-                TEXT= '亲爱的'+str(ACCOUNT)+'公司'+','+'您今天消费了'+str(TODAYCONSUMPTION)+','+'目前余额为'+str(MONEY)
+                TEXT= '亲爱的'+str(ACCOUNT)+'公司'+','+'您今天消费了'+str(TODAYCONSUMPTION)+','+'目前余额为'+str(MONEY)+','+'您的透支限度为'+str(LIMITMONEY)
                 mailto_list = data["memo"]  #从数据组字典中的memo里取得email地址
                 if __name__ == '__main__':
                         print TEXT
-                if send_mail(mailto_list,TEXT,result):
+                if send_mail(mailto_list,TITLE,TEXT):
                         print "发送成功"
                 else:
                         print "发送失败"
