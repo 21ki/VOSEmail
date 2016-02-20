@@ -9,3 +9,5 @@
 <br>MYSQL_PASS="xxxxx"    #连接数据库的密码
 <br>DATABASE="xxxxxx"     #数据库名称
 <br>以上的数据客户可以自己去设置和定义.
+<br>安装MySQL的python模块方法如下:
+<br>#yum install MySQL-python，该模块就安装好了。
