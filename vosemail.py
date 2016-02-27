@@ -14,10 +14,10 @@ mail_host=""  #设置服务器
 mail_user=""    #用户名
 mail_pass=""   #口令 
 mail_postfix=""  #发件箱的后缀
-MYSQL_SERVER=""
-MYSQL_USER=""
-MYSQL_PASS=""
-DATABASE=""
+MYSQL_SERVER=""  #Mysql服务器地址
+MYSQL_USER=""    #要连接的Mysql账户名
+MYSQL_PASS=""    #要连接的账户名密码
+DATABASE=""      #VOS数据库，要么是vos2009要么是vos3000db
 DATE=time.strftime('%Y-%m-%d',time.localtime(time.time()))
 TITLE='亲您哒'+str(DATE)+'时间VOS的话费消费记录'
 def send_mail(to_list,sub,content):  #to_list：收件人；sub：主题；content：邮件内容
