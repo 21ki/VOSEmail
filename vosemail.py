@@ -50,17 +50,17 @@ try:
                 TODAYCONSUMPTION = data["todayconsumption"]
                 TITLE1=str(ACCOUNT)+'公司'+TITLE
 #               print ACCOUNT
-                print TITLE1
+#               print TITLE1
                 TEXT= '亲爱的'+ACCOUNT+'公司'+','+'您今天消费了'+str(TODAYCONSUMPTION)+','+'目前余额为'+str(MONEY)+','+'您的透支限度为'+str(LIMITMONEY)
                 mailto_list = str(data["memo"])  #从数据组字典中的memo里取得email地址
-                print mailto_list
+#                print mailto_list
                 if __name__ == '__main__':
                         print TEXT
                 if send_mail(mailto_list,TITLE1,TEXT):
-                        print "发送成功"
+                        print "邮件发送成功"
                         time.sleep(20)
                 else:
-                        print "发送失败"
+                        print "邮件发送失败"
                         time.sleep(10)
 except MySQLdb.Error,e:
         print "Mysql Error %d: %s" % (e.args[0], e.args[1])
