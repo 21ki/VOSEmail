@@ -11,3 +11,7 @@
 <br>以上的数据客户可以自己去设置和定义.
 <br>安装MySQL的python模块方法如下:
 <br>#yum install MySQL-python，该模块就安装好了。
+
+# VOSSMS
+做了跟阿里大鱼的接口实现了计费通知功能。
+vossms.py为该脚本功能
