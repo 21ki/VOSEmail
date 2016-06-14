@@ -2,8 +2,8 @@
 #encoding=utf-8
 import time
 import sys
-import MySQLdb
-import top.api
+import MySQLdb   #需要自己下载该python库
+import top.api   #需要下载大鱼的python sdk http://download.taobaocdn.com/freedom/38879/compress/sdk-python-2016-06-07.zip
 import json
 reload(sys)
 sys.setdefaultencoding('utf-8')
