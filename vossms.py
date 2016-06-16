@@ -7,14 +7,14 @@ import top.api
 import json
 reload(sys)
 sys.setdefaultencoding('utf-8')
-MYSQL_SERVER=""
-MYSQL_USER=""
-MYSQL_PASS=""
+MYSQL_SERVER=""    #MYSQL SERVER
+MYSQL_USER=""      #连接mysql的账号
+MYSQL_PASS=""      #连接mysql的密码
 DATABASE="vosdb"
 DATE=time.strftime('%Y-%m-%d',time.localtime(time.time()))
 TITLE='您的'+str(DATE)+'时间VOS的话费消费记录'
-appkey = ""
-secret = ""
+appkey = ""        #大鱼的appkey
+secret = ""        #大鱼的密码
 partner_id = "taobao-sdk-python-20160607"
 host = "http://gw.api.taobao.com/router/rest"
 port = "80"
@@ -44,11 +44,11 @@ try:
                 print "电话",PHONE
                 req.extend = ""
                 req.sms_type = "normal"
-                req.sms_free_sign_name = "XXXX"
+                req.sms_free_sign_name = "XXXX"   #签名
                 params = {"name":ACCOUNT,"m":MONEY,"l":LIMITMONEY,"t":TODAYCONSUMPTION}
                 req.sms_param = json.dumps(params)
                 req.rec_num = PHONE
-                req.sms_template_code = ""
+                req.sms_template_code = ""      #模板名称
                 try :
                         resp = req.getResponse()
                         print (resp)
@@ -64,8 +64,8 @@ try:
                 print "电话",PHONE
                 req_voice.extend = ""
                 req_voice.called_num = PHONE
-                req_voice.called_show_num = "4001003782"
-                req_voice.voice_code = "xxxxxxxxxx.wav"
+                req_voice.called_show_num = "4001003782"    #大鱼的主叫号码
+                req_voice.voice_code = "xxxxxxxxxx.wav"     #上传并认证通过语音文件
                 try:
                         resp= req_voice.getResponse()
                         print(resp)
