@@ -17,16 +17,16 @@ mail_postfix=""  #发件箱的后缀
 MYSQL_SERVER=""  #Mysql服务器地址
 MYSQL_USER=""    #要连接的Mysql账户名
 MYSQL_PASS=""    #要连接的账户名密码
-DATABASE=""      #VOS数据库，要么是vos2009要么是vos3000db
+DATABASE="vosdb"      #VOS数据库，要么是vos2009要么是vos3000db
 DATE=time.strftime('%Y-%m-%d',time.localtime(time.time()))
 TITLE='亲您哒'+str(DATE)+'时间VOS的话费消费记录'
 def send_mail(to_list,sub,content):  #to_list：收件人；sub：主题；content：邮件内容
-    me="Email_VOS"+"<"+mail_user+"@"+mail_postfix+">"   #这里的hello可以任意设置，收到信后，将按照设置显示
+    me="Email_VOS"+"<"+mail_postfix+">"   #这里的hello可以任意设置，收到信后，将按照设置显示
     print me
     msg = MIMEText(content,_subtype='html',_charset='utf-8')    #创建一个实例，这里设置为html格式邮件
     msg['Subject'] = sub    #设置主题
     msg['From'] = me  
-    msg['To'] = ";".join(to_list)  
+    msg['To'] = to_list
     try:  
         smtpsend = smtplib.SMTP()  
         smtpsend.connect(mail_host)  #连接smtp服务器
@@ -51,12 +51,12 @@ try:
                 TITLE1=str(ACCOUNT)+'公司'+TITLE
 #               print ACCOUNT
 #               print TITLE1
-                TEXT= '亲爱的'+ACCOUNT+'公司'+','+'您今天消费了'+str(TODAYCONSUMPTION)+','+'目前余额为'+str(MONEY)+','+'您的透支限度为'+str(LIMITMONEY)
-                mailto_list = str(data["memo"])  #从数据组字典中的memo里取得email地址
+                TEXT= '亲爱的'+ACCOUNT+'公司'+','+'您今天消费了'+str(TODAYCONSUMPTION)+','+'目前余额为'+str(MONEY)+','+'请尽快联系xx科技公司进行充值，谢谢！)'
+                to_list = str(data["memo"])  #从数据组字典中的memo里取得email地址
 #                print mailto_list
                 if __name__ == '__main__':
                         print TEXT
-                if send_mail(mailto_list,TITLE1,TEXT):
+                if send_mail(to_list,TITLE1,TEXT):
                         print "邮件发送成功"
                         time.sleep(20)
                 else:
